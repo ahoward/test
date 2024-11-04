@@ -31,11 +31,13 @@ jobs:
         with:
           bundler-cache: true
       - name: tunnel
-        uses: debugci/setup-cloudflared@v1
         run: |
-            nohup cloudflared tunnel --url http://localhost:3000 &
+          wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+          unzip ./ngrok*.zip
+          mv ngrok tmp/
+          nohup tmp/ngrok http 3000 &
       - run: |
-            export RAILS_ENV=production
-            bundle
-            bundled exec rails db:migrate
-            bundled exec rails server
+          export RAILS_ENV=production
+          bundle
+          bundled exec rails db:migrate
+          bundled exec rails server
