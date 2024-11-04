@@ -35,11 +35,13 @@ jobs:
           export RAILS_ENV=production
           bundle
           bundle exec rails db:migrate
-          nohup bundle exec rails server &
+          nohup bundle exec rails server > rails.nohup &
       - name: ngrok-tunnel
         run: |
           cd ./tmp/
           wget --quiet https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
           tar xvfz ngrok-v3-stable-linux-amd64.tgz
           ./ngrok authtoken 6FWXPjAuSsWfA8K2bsqDR_2UtxsSyZ97XdR4UBGDfDo
-          nohup ./ngrok http 3000
+          nohup ./ngrok http 3000 > ngrok.nohup
+          sleep 2
+          cat ngrok.nohup
