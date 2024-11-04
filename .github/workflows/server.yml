@@ -42,6 +42,4 @@ jobs:
           wget --quiet https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
           tar xvfz ngrok-v3-stable-linux-amd64.tgz
           ./ngrok authtoken 6FWXPjAuSsWfA8K2bsqDR_2UtxsSyZ97XdR4UBGDfDo
-          nohup ./ngrok http 3000 > ngrok.nohup
-          sleep 2
-          cat ngrok.nohup
+          ./ngrok http 3000
