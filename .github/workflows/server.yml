@@ -32,11 +32,11 @@ jobs:
           bundler-cache: true
       - name: tunnel
         run: |
-          wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-          unzip ./ngrok*.zip
-          mv ngrok tmp/
-          ./tmp/ngrok authtoken 6FWXPjAuSsWfA8K2bsqDR_2UtxsSyZ97XdR4UBGDfDo
-          nohup ./tmp/ngrok http 3000 &
+          cd ./tmp/
+          wget --quiet https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+          tar xvfz ngrok-v3-stable-linux-amd64.tgz
+          ./ngrok authtoken 6FWXPjAuSsWfA8K2bsqDR_2UtxsSyZ97XdR4UBGDfDo
+          nohup ./ngrok http 3000 &
       - run: |
           export RAILS_ENV=production
           bundle
