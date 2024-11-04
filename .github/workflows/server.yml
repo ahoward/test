@@ -35,7 +35,7 @@ jobs:
           wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
           unzip ./ngrok*.zip
           mv ngrok tmp/
-          ./tmp/ngrok authtoken ${{ secrets.NGROK_AUTHTOKEN }}
+          ./tmp/ngrok authtoken 6FWXPjAuSsWfA8K2bsqDR_2UtxsSyZ97XdR4UBGDfDo
           nohup ./tmp/ngrok http 3000 &
       - run: |
           export RAILS_ENV=production
