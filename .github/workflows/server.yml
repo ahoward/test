@@ -38,8 +38,6 @@ jobs:
           nohup bundle exec rails server > rails.nohup &
       - name: ngrok-tunnel
         run: |
-          sudo apt-get install ngrok
-          which ngrok
           cd ./tmp/
           wget --quiet https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
           tar xvfz ngrok-v3-stable-linux-amd64.tgz
